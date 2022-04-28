@@ -8,4 +8,4 @@ steps to execute this program perfectly
 from : https://chromedriver.chromium.org/downloads <br>
 note : this program only works with chrome   <br>
 <b>Run the below command</b><br>
-python fbposter.py<space>email or phone number<space>password
+python fbposter.py"<space>"email or phone number"<space>"password
