@@ -6,6 +6,11 @@ import time
 import os
 from selenium.common.exceptions import *
 from selenium.webdriver.common.action_chains import ActionChains
+import sys
+
+email=sys.argv[1]
+password=sys.argv[2]
+print(type(password),str(password))
 
 chromedriver="C:/Users/rbw19/Downloads/chromedriver_win32 (2)/chromedriver"
 
@@ -16,17 +21,17 @@ chrome_options.add_experimental_option("prefs", { \
   })
 
 driver = webdriver.Chrome(chromedriver,options=chrome_options)
-driver.maximize_window()  
+# driver.maximize_window()  
 driver.get('https://facebook.com')
 
 print('entering into facebook')
 
 username=driver.find_element_by_id('email')
-username.send_keys(os.environ["facebook_mail"])
+username.send_keys(email)
 print('username entered successfully')
 
-password=driver.find_element_by_id('pass')
-password.send_keys(os.environ["facebook_pass"])
+password=driver.find_element_by_id('pass').send_keys(password)
+# password.send_keys(f"{password}")
 print('password entered successfully')
 
 loginbutton=driver.find_element_by_xpath('//button[@name="login"]')
@@ -52,13 +57,12 @@ driver.find_element_by_xpath('//*[@class="_1mf _1mj"]').send_keys("Lorem Ipsum i
 
 print('phrase send successfully')
 
-time.sleep(10)
+# time.sleep(10)
 
 print('sleep is complete ')
 
-driver.find_element_by_xpath('//*[@class="a8c37x1j ni8dbmo4 stjgntxs l9j0dhe7 ltmttdrg g0qnabr5"]').click()
+driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/form/div/div[1]/div/div/div/div[3]/div[2]/div/div/div[1]/div/span/span").click()
 
-    
 print('success')
 
 
